@@ -489,3 +489,303 @@ code {
     font-size: 1.6rem;
   }
 }
+
+/* ======================================================
+   ETAPA 2: clientes e serviços
+   ====================================================== */
+
+.botao-secundario {
+  background: #fff;
+  color: var(--texto);
+  border: 1px solid var(--borda);
+}
+
+.botao-secundario:hover:not(:disabled) {
+  background: var(--fundo);
+}
+
+.botao-perigo {
+  background: var(--erro);
+  color: #fff;
+}
+
+.botao-perigo:hover:not(:disabled) {
+  background: #991b1b;
+}
+
+.barra-ferramentas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.campo-busca,
+.campo-filtro {
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--texto);
+}
+
+.campo-busca {
+  flex: 1;
+  min-width: 220px;
+}
+
+.campo-busca:focus,
+.campo-filtro:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 1px;
+  border-color: var(--verde);
+}
+
+.campo textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--texto);
+  resize: vertical;
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.campo-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--verde);
+}
+
+.linha-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.acoes-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* ---------- Tabela ---------- */
+
+.tabela-wrap {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th {
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-suave);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: middle;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela tbody tr:hover {
+  background: #f8fafc;
+}
+
+.linha-inativa {
+  opacity: 0.6;
+}
+
+.coluna-acoes {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.botao-tabela {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-left: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--texto);
+}
+
+.botao-tabela:hover:not(:disabled) {
+  background: var(--fundo);
+}
+
+.botao-tabela:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.botao-tabela-perigo {
+  color: var(--erro);
+  border-color: #fecaca;
+}
+
+.botao-tabela-perigo:hover:not(:disabled) {
+  background: var(--erro-fundo);
+}
+
+.texto-pequeno {
+  font-size: 0.85rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.etiqueta-ativa {
+  background: var(--verde-claro);
+  color: var(--sucesso);
+}
+
+.etiqueta-inativa {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* ---------- Janela (modal) ---------- */
+
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--superficie);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3);
+}
+
+.modal-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.modal-cabecalho h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-fechar {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.modal-corpo {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.texto-confirmacao {
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .linha-campos {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tabela vira lista de cartões no celular */
+  .tabela thead {
+    display: none;
+  }
+
+  .tabela,
+  .tabela tbody,
+  .tabela tr,
+  .tabela td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabela tr {
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .tabela tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .tabela td {
+    border-bottom: none;
+    padding: 6px 14px;
+  }
+
+  .tabela td[data-rotulo]::before {
+    content: attr(data-rotulo) ': ';
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+  }
+
+  .coluna-acoes {
+    text-align: left !important;
+  }
+
+  .botao-tabela {
+    margin: 4px 6px 0 0;
+  }
+
+  .pagina-cabecalho {
+    flex-direction: column;
+  }
+}

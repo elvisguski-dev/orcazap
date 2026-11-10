@@ -30,5 +30,9 @@ export function traduzirErro(erro) {
   if (mensagem.includes('failed to fetch') || mensagem.includes('network')) {
     return 'Sem conexão com o servidor. Verifique sua internet.'
   }
+  // Política de segurança (RLS) do banco: licença inválida ou sem permissão.
+  if (codigo === '42501' || mensagem.includes('row-level security')) {
+    return 'Ação não permitida. Verifique se a sua licença está ativa e dentro do limite do plano.'
+  }
   return erro?.message || 'Ocorreu um erro inesperado. Tente novamente.'
 }

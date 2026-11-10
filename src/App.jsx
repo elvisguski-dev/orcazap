@@ -6,6 +6,8 @@ import Layout from './components/Layout'
 import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
 import Dashboard from './pages/Dashboard'
+import Clientes from './pages/Clientes'
+import Servicos from './pages/Servicos'
 import Placeholder from './pages/Placeholder'
 
 function TelaCentral({ children }) {
@@ -53,9 +55,9 @@ function Rotas() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
-          <Route path="clientes" element={<Placeholder titulo="Clientes" />} />
+          <Route path="clientes" element={<Clientes />} />
           <Route path="orcamentos" element={<Placeholder titulo="Orçamentos" />} />
-          <Route path="servicos" element={<Placeholder titulo="Serviços" />} />
+          <Route path="servicos" element={<Servicos />} />
           <Route path="configuracoes" element={<Placeholder titulo="Configurações" />} />
           <Route
             path="admin"
