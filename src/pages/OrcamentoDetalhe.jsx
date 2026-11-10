@@ -4,6 +4,9 @@ import ConfirmarExclusao from '../components/ConfirmarExclusao'
 import { useLicenca } from '../contexts/LicencaContext'
 import { traduzirErro } from '../lib/erros'
 import { formatarData, formatarMoeda } from '../lib/formatar'
+import { baixarPdfOrcamento } from '../lib/pdf'
+import { linkWhatsapp } from '../lib/whatsapp'
+import { buscarPerfil } from '../services/perfilService'
 import {
   atualizarStatus,
   buscarOrcamento,
@@ -22,9 +25,16 @@ export default function OrcamentoDetalhe() {
   const [erro, setErro] = useState('')
   const [mudandoStatus, setMudandoStatus] = useState(false)
   const [confirmandoExclusao, setConfirmandoExclusao] = useState(false)
+  const [perfil, setPerfil] = useState(null)
+  const [gerandoPdf, setGerandoPdf] = useState(false)
 
   useEffect(() => {
     let ativo = true
+    buscarPerfil()
+      .then((dados) => {
+        if (ativo) setPerfil(dados)
+      })
+      .catch(() => {})
     buscarOrcamento(id)
       .then((dados) => {
         if (!ativo) return
@@ -54,6 +64,23 @@ export default function OrcamentoDetalhe() {
     } finally {
       setMudandoStatus(false)
     }
+  }
+
+  async function baixarPdf() {
+    setGerandoPdf(true)
+    setErro('')
+    try {
+      await baixarPdfOrcamento(orcamento, perfil)
+    } catch (e) {
+      console.error(e)
+      setErro('Não foi possível gerar o PDF. Tente novamente.')
+    } finally {
+      setGerandoPdf(false)
+    }
+  }
+
+  function enviarWhatsapp() {
+    window.open(linkWhatsapp(orcamento, perfil), '_blank', 'noopener,noreferrer')
   }
 
   async function confirmarExclusao() {
@@ -91,6 +118,12 @@ export default function OrcamentoDetalhe() {
         </div>
 
         <div className="acoes-cabecalho">
+          <button type="button" className="botao botao-secundario" onClick={baixarPdf} disabled={gerandoPdf}>
+            {gerandoPdf ? 'Gerando…' : 'Baixar PDF'}
+          </button>
+          <button type="button" className="botao botao-whatsapp" onClick={enviarWhatsapp}>
+            WhatsApp
+          </button>
           {bloqueada ? (
             <button type="button" className="botao botao-secundario" disabled>
               Editar

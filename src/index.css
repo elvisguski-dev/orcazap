@@ -978,3 +978,16 @@ code {
   gap: 24px;
   max-width: 760px;
 }
+
+/* ======================================================
+   ETAPA 5: PDF e WhatsApp
+   ====================================================== */
+
+.botao-whatsapp {
+  background: #25d366;
+  color: #06361b;
+}
+
+.botao-whatsapp:hover:not(:disabled) {
+  background: #1ebe5a;
+}
