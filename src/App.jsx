@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import Clientes from './pages/Clientes'
 import Servicos from './pages/Servicos'
 import Orcamentos from './pages/Orcamentos'
+import Configuracoes from './pages/Configuracoes'
 import OrcamentoForm from './pages/OrcamentoForm'
 import OrcamentoDetalhe from './pages/OrcamentoDetalhe'
 import Placeholder from './pages/Placeholder'
@@ -64,7 +65,7 @@ function Rotas() {
           <Route path="orcamentos/:id" element={<OrcamentoDetalhe />} />
           <Route path="orcamentos/:id/editar" element={<OrcamentoForm />} />
           <Route path="servicos" element={<Servicos />} />
-          <Route path="configuracoes" element={<Placeholder titulo="Configurações" />} />
+          <Route path="configuracoes" element={<Configuracoes />} />
           <Route
             path="admin"
             element={

@@ -963,3 +963,18 @@ code {
     flex-wrap: wrap;
   }
 }
+
+/* ======================================================
+   ETAPA 4: dashboard e configurações
+   ====================================================== */
+
+.grade-cards-4 {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.coluna-configuracoes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+}
