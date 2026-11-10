@@ -30,3 +30,11 @@ export function formatarData(valor) {
   }
   return new Date(texto).toLocaleDateString('pt-BR')
 }
+
+// Data e hora juntas (ex.: "10/11/2026 20:21").
+export function formatarDataHora(valor) {
+  if (!valor) return '—'
+  const data = new Date(valor)
+  if (Number.isNaN(data.getTime())) return '—'
+  return data.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })
+}

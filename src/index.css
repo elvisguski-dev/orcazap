@@ -991,3 +991,52 @@ code {
 .botao-whatsapp:hover:not(:disabled) {
   background: #1ebe5a;
 }
+
+/* ---------- Painel de administração ---------- */
+
+.abas {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--borda);
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.aba {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--texto-suave, #64748b);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.aba:hover {
+  color: var(--texto);
+}
+
+.aba.ativa {
+  color: var(--verde);
+  border-bottom-color: var(--verde);
+}
+
+.etiqueta-admin {
+  margin-left: 8px;
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.atalhos-data {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lista-mudancas {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}

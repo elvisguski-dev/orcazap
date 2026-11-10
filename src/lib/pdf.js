@@ -117,9 +117,13 @@ export async function baixarPdfOrcamento(orcamento, perfil) {
     footStyles: { fillColor: [241, 245, 249], textColor: escuro, fontStyle: 'bold', fontSize: 11 },
     columnStyles: {
       0: { cellWidth: 'auto' },
-      1: { halign: 'center', cellWidth: 20 },
-      2: { halign: 'right', cellWidth: 34 },
-      3: { halign: 'right', cellWidth: 34 },
+      1: { cellWidth: 20 },
+      2: { cellWidth: 34 },
+      3: { cellWidth: 34 },
+    },
+    // Alinha título, linhas e total de cada coluna do mesmo jeito.
+    didParseCell: (dados) => {
+      dados.cell.styles.halign = ['left', 'center', 'right', 'right'][dados.column.index]
     },
   })
 

@@ -12,7 +12,7 @@ import Orcamentos from './pages/Orcamentos'
 import Configuracoes from './pages/Configuracoes'
 import OrcamentoForm from './pages/OrcamentoForm'
 import OrcamentoDetalhe from './pages/OrcamentoDetalhe'
-import Placeholder from './pages/Placeholder'
+import Admin from './pages/Admin'
 
 function TelaCentral({ children }) {
   return (
@@ -72,7 +72,7 @@ function Rotas() {
               ehAdmin === null ? (
                 <p className="texto-suave">Verificando permissão…</p>
               ) : ehAdmin ? (
-                <Placeholder titulo="Administração" />
+                <Admin />
               ) : (
                 <Navigate to="/" replace />
               )
