@@ -789,3 +789,177 @@ code {
     flex-direction: column;
   }
 }
+
+/* ======================================================
+   ETAPA 3: orçamentos
+   ====================================================== */
+
+.botao-link-bloco {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.botao-link {
+  text-decoration: none;
+}
+
+.botao-tabela {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.etiqueta-pendente {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.etiqueta-aprovado {
+  background: var(--verde-claro);
+  color: var(--sucesso);
+}
+
+.etiqueta-recusado {
+  background: var(--erro-fundo);
+  color: var(--erro);
+}
+
+.texto-cortado {
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rodape-lista {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.acoes-cabecalho {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-valor-texto {
+  font-size: 1.4rem;
+  word-break: break-word;
+}
+
+.card-observacoes {
+  white-space: pre-wrap;
+}
+
+.secao-titulo {
+  font-size: 1.1rem;
+  margin: 28px 0 12px;
+}
+
+.secao-form .secao-titulo {
+  margin-top: 0;
+}
+
+.secao-form {
+  gap: 16px;
+}
+
+.card .campo-filtro,
+.campo .campo-filtro {
+  width: 100%;
+}
+
+/* ---------- Itens do orçamento (formulário) ---------- */
+
+.itens-cabecalho,
+.item-linha {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) 80px 120px 110px 90px;
+  gap: 10px;
+  align-items: center;
+}
+
+.itens-cabecalho {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-suave);
+}
+
+.item-linha input,
+.item-linha select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--texto);
+}
+
+.item-linha input:focus,
+.item-linha select:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 1px;
+  border-color: var(--verde);
+}
+
+.item-subtotal {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.itens-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.total-orcamento {
+  font-size: 1.2rem;
+}
+
+.total-rotulo {
+  text-align: right;
+  font-weight: 600;
+}
+
+.total-valor {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Em telas que não comportam as 6 colunas, cada item vira um cartão. */
+@media (max-width: 1280px) {
+  .itens-cabecalho {
+    display: none;
+  }
+
+  .item-linha {
+    grid-template-columns: 1fr 1fr;
+    padding: 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+  }
+
+  .item-linha > :nth-child(1),
+  .item-linha > :nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .item-linha > :nth-child(5),
+  .item-linha > :nth-child(6) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .acoes-formulario {
+    flex-wrap: wrap;
+  }
+}

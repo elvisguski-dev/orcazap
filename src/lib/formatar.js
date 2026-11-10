@@ -18,3 +18,15 @@ export function paraNumero(texto) {
 export function numeroParaCampo(numero) {
   return Number(numero || 0).toFixed(2).replace('.', ',')
 }
+
+// Aceita uma data simples do banco ("2026-11-30") ou um carimbo de data/hora.
+// Datas simples são tratadas à parte para não "voltar um dia" por causa do fuso.
+export function formatarData(valor) {
+  if (!valor) return '—'
+  const texto = String(valor)
+  if (/^\d{4}-\d{2}-\d{2}$/.test(texto)) {
+    const [ano, mes, dia] = texto.split('-')
+    return `${dia}/${mes}/${ano}`
+  }
+  return new Date(texto).toLocaleDateString('pt-BR')
+}

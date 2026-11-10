@@ -8,6 +8,9 @@ import ResetPassword from './pages/ResetPassword'
 import Dashboard from './pages/Dashboard'
 import Clientes from './pages/Clientes'
 import Servicos from './pages/Servicos'
+import Orcamentos from './pages/Orcamentos'
+import OrcamentoForm from './pages/OrcamentoForm'
+import OrcamentoDetalhe from './pages/OrcamentoDetalhe'
 import Placeholder from './pages/Placeholder'
 
 function TelaCentral({ children }) {
@@ -56,7 +59,10 @@ function Rotas() {
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="clientes" element={<Clientes />} />
-          <Route path="orcamentos" element={<Placeholder titulo="Orçamentos" />} />
+          <Route path="orcamentos" element={<Orcamentos />} />
+          <Route path="orcamentos/novo" element={<OrcamentoForm />} />
+          <Route path="orcamentos/:id" element={<OrcamentoDetalhe />} />
+          <Route path="orcamentos/:id/editar" element={<OrcamentoForm />} />
           <Route path="servicos" element={<Servicos />} />
           <Route path="configuracoes" element={<Placeholder titulo="Configurações" />} />
           <Route
