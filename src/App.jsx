@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { configuracaoOk } from './lib/supabase'
+import { configuracaoOk, problemaConfiguracao } from './lib/supabase'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { LicencaProvider } from './contexts/LicencaContext'
 import Layout from './components/Layout'
@@ -29,6 +29,11 @@ function ConfiguracaoFaltando() {
         Orça<span>Zap</span>
       </div>
       <h1 className="auth-titulo">Falta configurar o Supabase</h1>
+      {problemaConfiguracao && (
+        <div className="aviso aviso-erro" role="alert">
+          {problemaConfiguracao}
+        </div>
+      )}
       <p className="auth-subtitulo">
         Crie o arquivo <code>.env.local</code> na raiz do projeto com as duas linhas abaixo e
         reinicie o <code>npm run dev</code>:
