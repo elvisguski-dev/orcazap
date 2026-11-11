@@ -15,9 +15,9 @@ export async function supabaseRest(path, { method = 'GET', body, token } = {}) {
     method,
     headers: {
       apikey: key,
-      Authorization: `Bearer ${token || key}`,
       'Content-Type': 'application/json',
       Prefer: 'return=representation',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     ...(body ? { body: JSON.stringify(body) } : {}),
   })
