@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     if (!jwt) return responder(res, 401, { error: 'Entre na sua conta para assinar.' })
 
     const base = configObrigatoria('SUPABASE_URL').replace(/\/$/, '')
-    const anonKey = configObrigatoria('SUPABASE_ANON_KEY')
+    const anonKey = process.env.SUPABASE_ANON_KEY || configObrigatoria('VITE_SUPABASE_ANON_KEY')
     const authResponse = await fetch(`${base}/auth/v1/user`, {
       headers: { apikey: anonKey, Authorization: `Bearer ${jwt}` },
     })
