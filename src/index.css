@@ -1,23 +1,25 @@
 :root {
-  --verde: #16a34a;
-  --verde-escuro: #15803d;
-  --verde-claro: #dcfce7;
-  --navy: #0f1b2d;
-  --navy-claro: #1b2a41;
-  --fundo: #f4f6f9;
-  --superficie: #ffffff;
-  --texto: #0f172a;
-  --texto-suave: #64748b;
-  --borda: #e2e8f0;
-  --erro: #b91c1c;
-  --erro-fundo: #fee2e2;
-  --alerta: #b45309;
-  --sucesso: #166534;
-  --raio: 14px;
+  /* ===== Tema HACKER: preto + verde neon + fonte de terminal ===== */
+  --verde: #00ff88;
+  --verde-escuro: #00cc6a;
+  --verde-claro: rgba(0, 255, 136, 0.12);
+  --navy: #020604;
+  --navy-claro: #08160d;
+  --fundo: #050a07;
+  --superficie: #0a130d;
+  --texto: #c9f7d8;
+  --texto-suave: #6fae86;
+  --borda: #134d2c;
+  --erro: #ff5470;
+  --erro-fundo: #2a0d14;
+  --alerta: #ffb020;
+  --sucesso: #00ff88;
+  --raio: 6px;
 
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: ui-monospace, 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
   line-height: 1.5;
   color: var(--texto);
+  color-scheme: dark;
 }
 
 * {
@@ -1039,4 +1041,96 @@ code {
   margin: 0;
   padding-left: 18px;
   font-size: 0.9rem;
+}
+
+
+/* =====================================================================
+   TEMA HACKER - sobrescritas das cores fixas (claras) do tema original
+   ===================================================================== */
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(0, 255, 136, 0.07), transparent 60%),
+    var(--fundo);
+}
+
+/* linhas de varredura de monitor antigo (nao captura cliques) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px
+  );
+}
+
+::selection {
+  background: var(--verde);
+  color: #021a0b;
+}
+
+h1, h2, h3 {
+  color: var(--verde);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.logo { color: var(--verde); text-shadow: 0 0 12px rgba(0, 255, 136, 0.6); }
+.logo::before { content: '> '; opacity: 0.7; }
+.menu-link:hover,
+.menu-link.ativo { color: var(--verde); text-shadow: 0 0 8px rgba(0, 255, 136, 0.5); }
+.plano-nome,
+.botao-sair:hover,
+.botao-menu { color: var(--verde); }
+
+.botao-primario,
+.botao-perigo { color: #021a0b; font-weight: 700; box-shadow: 0 0 14px rgba(0, 255, 136, 0.35); }
+.botao-perigo { background: var(--erro); box-shadow: 0 0 14px rgba(255, 84, 112, 0.35); }
+.botao-primario:hover { box-shadow: 0 0 22px rgba(0, 255, 136, 0.6); }
+
+.campo input,
+.campo textarea,
+.campo-filtro,
+.item-linha select,
+.botao-secundario,
+.botao-tabela {
+  background: #050a07;
+  color: var(--texto);
+  border-color: var(--borda);
+}
+.campo input:focus,
+.campo textarea:focus,
+.campo-filtro:focus,
+.item-linha select:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 0 1px var(--verde), 0 0 12px rgba(0, 255, 136, 0.35);
+}
+.botao-secundario:hover,
+.botao-tabela:hover { border-color: var(--verde); color: var(--verde); }
+.botao-tabela-perigo { border-color: #6b1d2c; color: var(--erro); }
+
+.tabela tbody tr:hover { background: rgba(0, 255, 136, 0.07); }
+
+.etiqueta-inativa { background: #14201a; color: #6fae86; }
+.etiqueta-pendente { background: rgba(255, 176, 32, 0.15); color: #ffb020; }
+.etiqueta-admin { background: rgba(120, 140, 255, 0.15); color: #9aa8ff; }
+
+/* cartoes e paineis com brilho sutil de borda */
+.cartao, .card, .painel, .modal, .modal-conteudo {
+  border-color: var(--borda);
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.06), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #050a07; }
+::-webkit-scrollbar-thumb { background: #134d2c; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--verde-escuro); }
+
+@media print {
+  body::after { display: none; }
 }
